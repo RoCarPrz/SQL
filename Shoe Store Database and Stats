@@ -1,0 +1,32 @@
+--Create a shoe store database
+
+CREATE TABLE athletic_shoes 
+
+(id INTEGER PRIMARY KEY, item TEXT, class TEXT, price INTEGER, units_sold INTEGER);
+
+INSERT INTO athletic_shoes VALUES 
+(1, "roadrunners", "track", 200.10, 40),
+(2, "ballers 2.0", "basketball", 300.99, 70),
+(3, "aqua grips", "water", 12.99, 10),
+(4, "sprinters", "track", 50.99, 30),
+(5, "goal seekers", "soccer", 70.99, 60),
+(6, "hoopers", "basketball", 40.99, 19),
+(7, "webbers", "water", 60.99, 22),
+(8, "ronaldinio's", "soccer", 120.99, 75),
+(9, "on the green", "golf", 50.99, 100),
+(10, "tigers 3.1", "golf", 410.99, 105),
+(11, "put putter", "golf", 109.99, 40),
+(12, "messi's 1.0", "soccer", 130.99, 60),
+(13, "flippers", "water", 109.99, 39),
+(14, "mcqueens", "track", 59.99, 50),
+(15, "ali opps", "basketball", 100.99, 41);
+
+--display the database ordered by price.
+
+SELECT * FROM athletic_shoes
+ORDER BY price asc;
+
+--what are the most 5 popular items? 
+
+SELECT item, class, units_sold FROM athletic_shoes
+ORDER BY units_sold desc limit 5;
