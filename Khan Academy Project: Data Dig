@@ -1364,22 +1364,36 @@ INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft
 
 SELECT * FROM players LIMIT 5;
 
+--displaying the average height, weight, and age of NBA players.
+
 SELECT AVG(HEIGHT) FROM players;
 SELECT AVG(WEIGHT) FROM players;
 SELECT AVG(AGE) FROM players;
 
+--displaying the average seasons in the league and their average "real value".
+
 SELECT AVG(Seasons_in_league) FROM players;
 SELECT AVG(Real_value) FROM players;
+
+--display of the tallest and shortest players.
 
 SELECT player, MAX(HEIGHT) FROM players;
 SELECT player, MIN(HEIGHT) FROM players;
 
+--display of the heaviest and lightest players.
+
 SELECT player, MAX(WEIGHT) FROM players;
 SELECT player, MIN(WEIGHT) FROM players;
 
+--display of players that played for the Dallas Mavericks during the 2019-2020 season.
+
 SELECT player, team, season FROM players WHERE team = "Dallas Mavericks" AND season = "2019-2020";
 
+--number of players who have played less than 10 season in the league.
+
 SELECT COUNT(Season) AS NUM_SEASONS_PLAYED, player, team FROM players GROUP BY player HAVING NUM_SEASONS_PLAYED < 10 LIMIT 10;
+
+--calculation of nba players body mass index.
 
 SELECT player, weight / (height * height) AS bmi,
        CASE 
