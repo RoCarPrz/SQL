@@ -37,6 +37,7 @@ VALUES
 ("7", "Pain Packer", "Transmutation"),
 ("8", "Magical esthetician", "Transmutation");
 
+-- Combination of both tables
 SELECT c.name, c.age, c.occupation, a.ability_name, a.category
 FROM Characters c
 JOIN Abilities a
