@@ -1,0 +1,43 @@
+-- Table 1: Characters
+CREATE TABLE Characters (
+character_id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+age INTEGER,
+occupation TEXT
+);
+
+INSERT INTO Characters (name, age, occupation)
+VALUES
+("Gon Freecss", "12", "Hunter"),
+("Killua Zoldyck", "12", "Assassin/Hunter"),
+("kurapika", "17", "Hunter"),
+("Leorio Paladiknight", "19", "Medical Student/Hunter"),
+("Hisoka Morow", "28", "Magician"),
+("Chrollo Lucilfer", "26", "Bandit"),
+("Feitan Portor", "28", "Bandit"),
+("Biscuit Krueger", "57", "Greed Island Player");
+
+-- Table 2: Abilities
+CREATE TABLE Abilities (
+ability_id INTEGER PRIMARY KEY AUTOINCREMENT,
+character_id INTEGER,
+ability_name TEXT,
+category TEXT,
+FOREIGN KEY (character_id) REFERENCES Characters(character_id)
+);
+
+INSERT INTO Abilities (character_id, ability_name, category)
+VALUES
+("1", "Jajanken", "Enhancement"),
+("2", "Godspeed", "Transmutation"),
+("3", "Chain Jail", "Conjuration"),
+("4", "Warp Punch", "Emission"),
+("5", "Bungee Gum", "Transmutation"),
+("6", "Bandit's Secret", "Specialist"),
+("7", "Pain Packer", "Transmutation"),
+("8", "Magical esthetician", "Transmutation");
+
+SELECT c.name, c.age, c.occupation, a.ability_name, a.category
+FROM Characters c
+JOIN Abilities a
+ON c.character_id = a.character_id;
