@@ -1,0 +1,31 @@
+SELECT *
+FROM superstore
+ORDER BY price desc;
+
+SELECT SUM(price)
+FROM superstore;
+
+SELECT AVG(price), category
+FROM superstore
+WHERE category = 'Electronics';
+
+SELECT MIN(price), category
+FROM superstore
+WHERE category = 'Electronics';
+
+SELECT MAX(price), category
+FROM superstore
+WHERE category = 'Electronics';
+
+SELECT COUNT(price), category
+FROM superstore
+WHERE category = 'Electronics';
+
+SELECT MAX(price), category
+FROM superstore
+WHERE category = 'Kitchen Supplies';
+
+/* how many Air Purifiers are in stock? */
+SELECT stock_quantity, item_name
+FROM superstore
+WHERE item_name = 'Air Purifier';
